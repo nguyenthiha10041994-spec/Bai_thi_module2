@@ -30,7 +30,10 @@ public class SanPhamXuatService implements ISanPhamXuatService {
 
         return result;
     }
-
+    @Override
+    public boolean delete(String ma) {
+        return repository.delete(ma);
+    }
     @Override
     public void add(SanPhamXuat sanPhamXuat) {
         repository.add(sanPhamXuat);

@@ -22,24 +22,29 @@ public class SanPhamController {
     public void displayMainMenu() {
         while (true) {
             System.out.println("------ QUẢN LÝ SẢN PHẨM ------");
-            System.out.println("1. Danh sách");
-            System.out.println("2. Thêm mới");
-            System.out.println("3. Tìm kiếm");
-            System.out.println("4. Thoát");
+            System.out.println("1.Thêm mới danh sách");
+            System.out.println("2.Xoá");
+            System.out.println("3.Hiển thị danh sách");
+            System.out.println("4. Tìm kiếm");
+            System.out.println("5. Thoát");
 
             int choose = Integer.parseInt(scanner.nextLine());
 
             switch (choose) {
                 case 1:
-                    displayMenu();
-                    break;
-                case 2:
                     addMenu();
                     break;
+                case 2:
+                    deleteMenu();
+                    break;
+
                 case 3:
-                    searchMenu();
+                    displayMenu();
                     break;
                 case 4:
+                    searchMenu();
+                    break;
+                case 5:
                     return;
                 default:
                     System.out.println("Nhập sai, nhập lại!");
@@ -54,7 +59,20 @@ public class SanPhamController {
             System.out.println("2. Sản phẩm xuất");
             System.out.println("3. Quay lại");
 
-            int choose = Integer.parseInt(scanner.nextLine());
+            String input = scanner.nextLine();
+
+            if (input.isEmpty()) {
+                System.out.println("Không được để trống!");
+                continue;
+            }
+
+            int choose;
+            try {
+                choose = Integer.parseInt(input);
+            } catch (Exception e) {
+                System.out.println("Nhập sai, nhập lại!");
+                continue;
+            }
 
             switch (choose) {
                 case 1:
@@ -72,6 +90,59 @@ public class SanPhamController {
             }
         }
     }
+    public void deleteMenu() {
+        while (true) {
+            System.out.println("------ XOÁ SẢN PHẨM ------");
+            System.out.println("1. Sản phẩm nhập");
+            System.out.println("2. Sản phẩm xuất");
+            System.out.println("3. Quay lại");
+
+            String input = scanner.nextLine();
+
+            if (input.isEmpty()) {
+                System.out.println("Không được để trống!");
+                continue;
+            }
+
+            int choose;
+            try {
+                choose = Integer.parseInt(input);
+            } catch (Exception e) {
+                System.out.println("Nhập sai, nhập lại!");
+                continue;
+            }
+
+            switch (choose) {
+                case 1:
+                    String maNhap = SanPhamNhapView.inputMaXoa();
+                    boolean resultNhap = sanPhamNhapService.delete(maNhap);
+                    if (resultNhap) {
+                        System.out.println("Xoá thành công!");
+                    } else {
+                        System.out.println("Không tìm thấy để xoá!");
+                    }
+                    break;
+
+                case 2:
+                    String maXuat = SanPhamXuatView.inputMaXoa();
+                    boolean resultXuat = sanPhamXuatService.delete(maXuat);
+                    if (resultXuat) {
+                        System.out.println("Xoá thành công!");
+                    } else {
+                        System.out.println("Không tìm thấy để xoá!");
+                    }
+                    break;
+
+                case 3:
+                    return;
+
+                default:
+                    System.out.println("Nhập sai!");
+            }
+        }
+    }
+
+
 
     public void addMenu() {
         while (true) {
@@ -80,7 +151,20 @@ public class SanPhamController {
             System.out.println("2. Sản phẩm xuất");
             System.out.println("3. Quay lại");
 
-            int choose = Integer.parseInt(scanner.nextLine());
+            String input = scanner.nextLine();
+
+            if (input.isEmpty()) {
+                System.out.println("Không được để trống!");
+                continue;
+            }
+
+            int choose;
+            try {
+                choose = Integer.parseInt(input);
+            } catch (Exception e) {
+                System.out.println("Nhập sai, nhập lại!");
+                continue;
+            }
 
             switch (choose) {
                 case 1:
@@ -108,7 +192,20 @@ public class SanPhamController {
             System.out.println("2. Sản phẩm xuất");
             System.out.println("3. Quay lại");
 
-            int choose = Integer.parseInt(scanner.nextLine());
+            String input = scanner.nextLine();
+
+            if (input.isEmpty()) {
+                System.out.println("Không được để trống!");
+                continue;
+            }
+
+            int choose;
+            try {
+                choose = Integer.parseInt(input);
+            } catch (Exception e) {
+                System.out.println("Nhập sai, nhập lại!");
+                continue;
+            }
 
             switch (choose) {
                 case 1:

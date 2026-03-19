@@ -7,4 +7,5 @@ public interface ISanPhamNhapService {
     List<SanPhamNhap> findAll();
     List<SanPhamNhap> search(String keySearch);
     void add(SanPhamNhap sanPhamNhap);
+    boolean delete(String ma);
 }

@@ -6,4 +6,5 @@ import java.util.List;
 public interface ISanPhamNhapRepository {
     List<SanPhamNhap> findAll();
     void add(SanPhamNhap sanPhamNhap);
+    boolean delete(String ma);
 }

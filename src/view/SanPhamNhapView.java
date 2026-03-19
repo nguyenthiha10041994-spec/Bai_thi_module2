@@ -41,4 +41,9 @@ public class SanPhamNhapView {
             System.out.println(sp);
         }
     }
+    public static String inputMaXoa() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhập mã sản phẩm cần xoá: ");
+        return scanner.nextLine();
+    }
 }
